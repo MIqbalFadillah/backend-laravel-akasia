@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
 use Symfony\Component\HttpFoundation\Response as HttpResponse;
+use Illuminate\Support\Facades\Log;
 
 class DebitCardController extends BaseController
 {
@@ -60,6 +61,7 @@ class DebitCardController extends BaseController
      */
     public function show(DebitCardShowRequest $request, DebitCard $debitCard)
     {
+       Log::info('Debit Card ID: ' . $debitCard->id);
         return response()->json(new DebitCardResource($debitCard), HttpResponse::HTTP_OK);
     }
 
