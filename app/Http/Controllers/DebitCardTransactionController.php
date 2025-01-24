@@ -28,6 +28,8 @@ class DebitCardTransactionController extends BaseController
     {
         $debitCard = DebitCard::find($request->input('debit_card_id'));
 
+        $this->authorize('create', $debitCard);
+
         $debitCardTransactions = $debitCard
             ->debitCardTransactions()
             ->get();
@@ -45,6 +47,8 @@ class DebitCardTransactionController extends BaseController
     public function store(DebitCardTransactionCreateRequest $request)
     {
         $debitCard = DebitCard::find($request->input('debit_card_id'));
+
+        $this->authorize('create', $debitCard);
 
         $debitCardTransaction = $debitCard->debitCardTransactions()->create([
             'amount' => $request->input('amount'),
