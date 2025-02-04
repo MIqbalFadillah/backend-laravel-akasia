@@ -20,7 +20,6 @@ class CreateReceivedRepaymentsTable extends Migration
             $table->string('currency_code');
             $table->integer('amount');
             $table->date('received_at');
-
             // TODO: Add missing columns here
         });
     }

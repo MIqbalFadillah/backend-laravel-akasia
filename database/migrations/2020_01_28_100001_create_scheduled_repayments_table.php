@@ -22,6 +22,8 @@ class CreateScheduledRepaymentsTable extends Migration
             $table->string('currency_code');
             $table->date('due_date');
             $table->string('status');
+
+            // TODO: Add missing columns here
         });
     }
 
