@@ -15,6 +15,8 @@ class Loan extends Model
     public const CURRENCY_SGD = 'SGD';
     public const CURRENCY_VND = 'VND';
 
+    public $timestamps = false;
+
     use HasFactory;
 
     /**
@@ -37,6 +39,12 @@ class Loan extends Model
         'currency_code',
         'processed_at',
         'status',
+    ];
+
+    protected $casts = [
+        'user_id' => 'integer',
+        'amount' => 'integer',
+        'outstanding_amount' => 'integer',
     ];
 
     /**

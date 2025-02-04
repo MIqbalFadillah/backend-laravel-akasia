@@ -22,14 +22,6 @@ class CreateLoansTable extends Migration
             $table->string('currency_code');
             $table->date('processed_at');
             $table->string('status');
-            $table->timestamps();
-            $table->softDeletes();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('cascade')
-                ->onDelete('restrict');
         });
     }
 
